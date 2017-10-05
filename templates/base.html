@@ -6,13 +6,7 @@
 </head>
 <body>
 <header>
-    <h1><a href="{% url 'home' %}">Referendum App</a></h1>
-    {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <a href="{% url 'logout' %}">logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">login</a>
-    {% endif %}
+
 </header>
     {% block content %}
     {% endblock %}
