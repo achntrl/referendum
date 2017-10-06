@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="{% url 'home' %}">Referendum</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto flex-row"></ul>
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'user_details' %}">
+                        Hi {{ user.username }}
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-danger nav-link" href="{% url 'auth_logout' %}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link btn btn-primary" href="{% url 'auth_login' %}">Se connecter</a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link btn btn-success" href="{% url 'registration_register' %}">S'inscrire'</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+</nav>
