@@ -16,11 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from registration.backends.simple.views import RegistrationView
+
+from core.forms import CustomUserCreationForm
 
 urlpatterns = [
-    url(r'^polls/', include('polls.urls')),
-    url(r'^users/', include('users.urls')),
+    url(r'^', include('core.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^register/$',
+        RegistrationView.as_view(
+            form_class=CustomUserCreationForm
+        ),
+        name='registration_register',
+        ),
     url(r'^', include('registration.backends.simple.urls')),
 ]

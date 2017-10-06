@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    Avant {{ user.get_email }} Apres
     <form class="form-signin mt-5" method="post" action="" name="UpdateUserForm">
         {% csrf_token %}
         <h2 class="form-signin-heading">Modifier les informations</h2>
