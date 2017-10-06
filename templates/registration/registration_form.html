@@ -2,13 +2,33 @@
 {% load i18n %}
 
 {% block title %}{% trans "Register for an account" %}{% endblock %}
-
+{% block css %}
+    {% load static %}
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
-<form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+    <form class="form-signin mt-5" method="post" action="" name="RegisterForm">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Inscription</h2>
+        <div class="form-group">
+            <label for="id_username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            <input type="text" name="email" id="id_email" class="form-control" placeholder="email@exemple.com" required>
+        </div>
+        <div class="form-group">
+            <label for="id_password1">Mot de passe</label>
+            <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Mot de passe" required>
+        </div>
+        <div class="form-group">
+            <label for="id_password2">Confirmation du mot de passe</label>
+            <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Mot de passe" required>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
+        <input type="hidden" name="S'incrire" value="S'incrire" />
+    </form>
 {% endblock %}
 
 
