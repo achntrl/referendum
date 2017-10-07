@@ -105,3 +105,6 @@ db.sqlite3
 
 # Pycham
 .idea
+
+# VSCode
+.vscode
