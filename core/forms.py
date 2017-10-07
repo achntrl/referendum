@@ -18,3 +18,9 @@ class CustomUserCreationForm(RegistrationForm):
         if commit:
             user.save()
         return user
+
+
+class AccountProfileForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['first_name', 'last_name']
