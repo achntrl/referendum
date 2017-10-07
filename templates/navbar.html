@@ -10,7 +10,7 @@
             {% if user.is_authenticated %}
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'user_details' %}">
-                        Hi {{ user.username }}
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> Bonjour {{ user.username }}
                     </a>
                 </li>
                 <li>
