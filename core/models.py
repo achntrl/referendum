@@ -16,12 +16,16 @@ class User(AbstractUser):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='profile')
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        related_name='profile'
+    )
     bio = models.TextField(max_length=500, blank=True)
-    birth_date = models.DateField(null=True)
+    birth_date = models.DateField(null=True, blank=True)
     first_name = models.CharField(_('first name'), max_length=60, blank=True)
     last_name = models.CharField(_('last name'), max_length=60, blank=True)
-
 
 
 @receiver(post_save, sender=User)

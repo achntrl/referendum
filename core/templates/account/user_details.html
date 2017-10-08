@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
     <form class="form-signin mt-5" method="post" action="" name="UpdateUserForm">
         {% csrf_token %}
         <h2 class="form-signin-heading">Modifier les informations</h2>

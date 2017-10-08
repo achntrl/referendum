@@ -19,4 +19,5 @@ class UserAdmin(admin.ModelAdmin):
     def profile_last_name(self, instance):
         return instance.profile.last_name
 
+
 admin.site.register(User, UserAdmin)
