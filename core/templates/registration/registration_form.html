@@ -23,25 +23,30 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <h2 class="form-signin-heading">Inscription</h2>
+        <h2 class="form-signin-heading">{% trans "Sign up" %}
+        </h2>
         <div class="form-group">
-            <label for="id_username">Nom d'utilisateur</label>
-            <input type="text" name="username" id="id_username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+            <label for="id_username">{% trans "Username" %}
+            </label>
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="{% trans "Username" %}" required autofocus>
         </div>
         <div class="form-group">
-            <label for="id_email">Email</label>
+            <label for="id_email">{% trans "Email" %}
+            </label>
             <input type="text" name="email" id="id_email" class="form-control" placeholder="email@exemple.com" required>
         </div>
         <div class="form-group">
-            <label for="id_password1">Mot de passe</label>
-            <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Mot de passe" required>
+            <label for="id_password1">{% trans "Password" %}
+            </label>
+            <input type="password" name="password1" id="id_password1" class="form-control" placeholder="{% trans "Password" %}" required>
         </div>
         <div class="form-group">
-            <label for="id_password2">Confirmation du mot de passe</label>
-            <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Mot de passe" required>
+            <label for="id_password2">{% trans "Confirm Password" %}
+            </label>
+            <input type="password" name="password2" id="id_password2" class="form-control" placeholder="{% trans "Password" %}" required>
         </div>
         <input class="btn btn-lg btn-primary btn-block" type="submit"></input>
-        <input type="hidden" name="S'incrire" value="S'incrire" />
+        <input type="hidden" name="S'incrire" value="{% trans "Signup" %}" />
     </form>
 {% endblock %}
 

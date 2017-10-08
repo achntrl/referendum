@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
     {% if form.errors %}
@@ -19,31 +20,33 @@
         <div class="col-md-4 ml-md-auto">
             <form class="mt-2" method="post" action="" name="UpdateUserForm">
                 {% csrf_token %}
-                <h2 class="form-signin-heading">Modifier les informations</h2>
+                <h2 class="form-signin-heading">{% trans "Edit personal information" %}
+                </h2>
                 <div class="form-group">
-                    <label for="id_first_name">Prénom</label>
+                    <label for="id_first_name">{% trans "First name" %}
+                    </label>
                     <input
                             type="text"
                             name="first_name"
                             id="id_first_name"
                             class="form-control"
-                            placeholder="Audrey"
+                            placeholder="{% trans "First name" %}"
                             value="{{ user.profile.first_name }}"
                     />
                 </div>
                 <div class="form-group">
-                    <label for="id_last_name">Nom de famille</label>
+                    <label for="id_last_name">{% trans "Last name" %}</label>
                     <input
                             type="text"
                             name="last_name"
                             id="id_last_name"
                             class="form-control"
-                            placeholder="Dupont"
+                            placeholder="{% trans "Last name" %}"
                             value="{{ user.profile.last_name }}"
                     />
                 </div>
                 <div class="form-group">
-                    <label for="id_bio">Biographie (500 caractères)</label>
+                    <label for="id_bio">{% trans "Biography (max: 500 characters)" %}</label>
                     <textarea
                             name="bio"
                             id="id_bio"
@@ -51,7 +54,7 @@
                     >{{ user.profile.bio }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="id_birth_date">Date de naissance</label>
+                    <label for="id_birth_date">{% trans "Birth date" %}</label>
                     <input
                             type="date"
                             name="birth_date"
@@ -60,7 +63,7 @@
                             value="{{ user.profile.birth_date|date:'Y-m-d' }}"
                     />
                 </div>
-                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Enregistrer"></input>
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="{% trans "Save" %}"></input>
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>
         </div>

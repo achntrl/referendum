@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="{% url 'home' %}">Referendum</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,19 +12,19 @@
             {% if user.is_authenticated %}
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'user_details' %}">
-                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> Bonjour
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> {% trans 'Hello' %}
                         {% if user.profile.first_name %} {{ user.profile.first_name }} {% else %} {{ user.username }} {% endif %}
                     </a>
                 </li>
                 <li>
-                    <a class="btn btn-danger nav-link" href="{% url 'auth_logout' %}">Déconnexion</a>
+                    <a class="btn btn-danger nav-link" href="{% url 'auth_logout' %}">{% trans 'Log out' %}</a>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'auth_login' %}">Se connecter</a>
+                    <a class="nav-link" href="{% url 'auth_login' %}">{% trans 'Log in' %}</a>
                 </li>
                 <li class="nav-item active">
-                <a class="nav-link active" href="{% url 'registration_register' %}">S'inscrire</a>
+                <a class="nav-link active" href="{% url 'registration_register' %}">{% trans 'Sign up' %}</a>
                 </li>
             {% endif %}
         </ul>
