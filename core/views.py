@@ -8,7 +8,7 @@ from core.forms import AccountProfileForm
 def me(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = AccountProfileForm(request.POST, instance=request.user)
+        form = AccountProfileForm(request.POST, instance=request.user.profile)
         if form.is_valid():
             form.save()
     else:
