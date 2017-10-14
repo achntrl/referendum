@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'core.apps.CoreConfig',
+    'polls.apps.PollConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,6 +60,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'core', 'templates'),
+            os.path.join(BASE_DIR, 'polls', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -22,6 +22,7 @@ from core.forms import CustomUserCreationForm
 
 urlpatterns = [
     url(r'^', include('core.urls')),
+    url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
     url(r'^register/$',
